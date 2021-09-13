@@ -93,6 +93,15 @@ public class LinkedList <T> {
 		return temp.data;
 	}
 	
+	public T peek() {
+		if(head == null) {
+			System.out.println("List is empty...");
+			return null;
+		}
+		Node<T> temp = head;
+		return temp.data;
+	}
+	
 	//method to pop the last element from the linkedList, it returns the popped element
 	public T popLast() {
 		if(head == null) {

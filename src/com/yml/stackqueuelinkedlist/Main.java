@@ -9,6 +9,16 @@ public class Main {
 		stack.push(56);
 		stack.printStack();
 		
+		System.out.println("\nPeek: "+stack.peek());
+		stack.pop();
+		stack.printStack();
+		System.out.println("\nPeek: "+stack.peek());
+		stack.pop();
+		stack.printStack();
+		System.out.println("\nPeek: "+stack.peek());
+		stack.pop();
+		stack.printStack();
+		System.out.println("\nPeek: "+stack.peek());
 
 	}
 
