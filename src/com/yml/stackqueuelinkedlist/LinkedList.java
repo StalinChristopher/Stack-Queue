@@ -5,22 +5,22 @@ package com.yml.stackqueuelinkedlist;
  * Class to write methods related to the linkedList
  *
  */
-public class LinkedList {
+public class LinkedList <T> {
 	private int size;
-	private Node head;
+	private Node<T> head;
 	
-	class Node {
-		int data;
-		Node next;
+	class Node <E> {
+		E data;
+		Node<E> next;
 		
-		Node(int data){
+		Node(E data){
 			this.data = data;
 			next = null;
 		}
 	}
 	
 	//Method to push the element into the front of the linkedList
-	public void push(int data) {
+	public void push(T data) {
 		Node newNode = new Node(data);
 		newNode.next = head;
 		head = newNode;
@@ -29,7 +29,6 @@ public class LinkedList {
 	
 	//Method to print all the elements of the linkedList
 	public void  print() {
-		System.out.println("\nLinked list:");
 		Node temp = head;
 		while(temp != null) {
 			System.out.print(temp.data+" -> ");
@@ -39,7 +38,7 @@ public class LinkedList {
 	}
 	
 	//Method to append the element into the end of linked list
-	public boolean append(int data) {
+	public boolean append(T data) {
 		boolean isAdded = false;
 		Node newNode = new Node(data);
 		if(head == null) {
@@ -60,7 +59,7 @@ public class LinkedList {
 	}
 	
 	//Method to insert an element into the linkedList at a given position
-	public void insertAtPos(int pos, int data) {
+	public void insertAtPos(int pos, T data) {
 		if(pos<1) {
 			System.out.println("Invalid");
 		}
@@ -69,14 +68,14 @@ public class LinkedList {
 			size++;
 		}
 		else {
-			Node newNode = new Node(data);
-			Node temp = head;
+			Node<T> newNode = new Node(data);
+			Node<T> temp = head;
 			int count = 1;
 			while(count<pos-1) {
 				temp = temp.next;
 				count++;
 			}
-			Node cur = temp.next;
+			Node<T> cur = temp.next;
 			temp.next = newNode;
 			newNode.next = cur;
 			size++;
@@ -84,44 +83,44 @@ public class LinkedList {
 	}
 	
 	//method to pop the first element of the linkedList, it returns the deleted element
-	public int pop() {
+	public T pop() {
 		if(head == null) {
 			System.out.println("List is empty... Deletetion operation is not posibile");
-			return 0;
+			return null;
 		}
-		Node temp = head;
+		Node<T> temp = head;
 		head = temp.next;
 		return temp.data;
 	}
 	
 	//method to pop the last element from the linkedList, it returns the popped element
-	public int popLast() {
+	public T popLast() {
 		if(head == null) {
 			System.out.println("List is empty... Deletion operation is not possible");
-			return 0;
+			return null;
 		}
 		if(head.next == null) {
-			Node temp = head;
+			Node<T> temp = head;
 			head = null;
 			return temp.data;
 		}
-		Node temp = head;
+		Node<T> temp = head;
 		while(temp.next.next != null) {
 			temp = temp.next;
 		}
-		int data = temp.next.data;
+		T data = temp.next.data;
 		temp.next = null;
 		return data;
 	}
 	
 	
 	//Method to search for an element in the linkedList and return true if found and false if not found
-	public boolean search(int element) {
+	public boolean search(T element) {
 		if(head == null) {
 			System.out.println("List is empty");
 			return false;
 		}
-		Node temp = head;
+		Node<T> temp = head;
 		boolean isFound = false;
 		while(temp != null) {
 			if(temp.data == element) {
@@ -134,16 +133,16 @@ public class LinkedList {
 	}
 	
 	//Method to insert an element after the given value of the element in the linkedList
-	public boolean insertAfterValue(int value, int element) {
+	public boolean insertAfterValue(T value, T element) {
 		boolean isAdded = false;
-		Node temp = head;
+		Node<T> temp = head;
 		if(head == null) {
 			System.out.println("LinkedList is empty...");
 			return isAdded;
 		}
 		while(temp != null) {
 			if(temp.data == value) {
-				Node newNode = new Node(element);
+				Node<T> newNode = new Node<T>(element);
 				newNode.next = temp.next;
 				temp.next = newNode;
 				isAdded = true;
@@ -157,13 +156,13 @@ public class LinkedList {
 	}
 	
 	//Method to remove the given element, only if the element is present in the linkedList
-	public boolean remove(int element) {
+	public boolean remove(T element) {
 		if(!search(element)) {
 			System.out.println("Element not found... Deletion is not possible");
 			return false;
 		}
-		Node temp = head;
-		Node prev = null;
+		Node<T> temp = head;
+		Node<T> prev = null;
 		if(temp != null && temp.data == element) {
 			head =temp.next;
 			size--;
