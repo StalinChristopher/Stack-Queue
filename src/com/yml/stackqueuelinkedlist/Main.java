@@ -3,6 +3,7 @@ package com.yml.stackqueuelinkedlist;
 public class Main {
 
 	public static void main(String[] args) {
+		/*
 		Stack<Integer> stack = new Stack<Integer>();
 		stack.push(70);
 		stack.push(30);
@@ -19,7 +20,14 @@ public class Main {
 		stack.pop();
 		stack.printStack();
 		System.out.println("\nPeek: "+stack.peek());
-
+		
+		*/
+		
+		Queue<Integer> queue = new Queue<Integer>();
+		queue.enqueue(56);
+		queue.enqueue(30);
+		queue.enqueue(70);
+		queue.printQueue();
 	}
 
 }
