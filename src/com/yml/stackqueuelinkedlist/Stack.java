@@ -12,7 +12,17 @@ public class Stack <K> {
 	}
 	
 	public void printStack() {
-		System.out.println("Stack: ");
+		System.out.println("\nStack: ");
 		linkedList.print();
+	}
+	
+	public K pop() {
+		K data = linkedList.pop();
+		return data;
+	}
+	
+	public K peek() {
+		K data = linkedList.peek();
+		return data;
 	}
 }
