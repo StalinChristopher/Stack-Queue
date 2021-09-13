@@ -28,6 +28,17 @@ public class Main {
 		queue.enqueue(30);
 		queue.enqueue(70);
 		queue.printQueue();
+		
+		System.out.println("\nDequeue element : "+queue.dequeue());
+		queue.printQueue();
+		
+		System.out.println("\nDequeue element : "+queue.dequeue());
+		queue.printQueue();
+		
+		System.out.println("\nDequeue element : "+queue.dequeue());
+		System.out.println();
+		System.out.println("\nDequeue element : "+queue.dequeue());
+		
 	}
 
 }
